@@ -25,4 +25,75 @@ class Claim {
         this.bankingInfo = bankingInfo;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id){
+        this.id = id;
+    }
+
+    public Date getClaimDate() {
+        return claimDate;
+    }
+
+    public void setClaimDate(Date claimDate) {
+        this.claimDate = claimDate;
+    }
+
+    public void setInsuredPerson(String insuredPerson) {
+        this.insuredPerson = insuredPerson;
+    }
+
+    public String getInsuredPerson() {
+        return insuredPerson;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setExamDate(Date examDate) {
+        this.examDate = examDate;
+    }
+
+    public Date getExamDate() {
+        return examDate;
+    }
+
+    public void setDocuments(List<String> documents) {
+        this.documents = documents;
+    }
+
+    public List<String> getDocuments() {
+        return documents;
+    }
+
+    public void setClaimAmount(double claimAmount) {
+        this.claimAmount = claimAmount;
+    }
+
+    public double getClaimAmount() {
+        return claimAmount;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setBankingInfo(BankingInfo bankingInfo) {
+        this.bankingInfo = bankingInfo;
+    }
+
+    public BankingInfo getBankingInfo() {
+        return bankingInfo;
+    }
 }

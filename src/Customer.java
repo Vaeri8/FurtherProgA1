@@ -14,4 +14,11 @@ class Customer {
         this.claims = new ArrayList<>();
     }
 
+    public List<Claim> getClaims() {
+        return claims;
+    }
+
+    public void setClaims(List<Claim> claims) {
+        this.claims = claims;
+    }
 }
