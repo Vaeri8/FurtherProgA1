@@ -10,7 +10,7 @@ import java.util.*;
 
 public class ClaimOperation implements ClaimProcessManager{
 
-    List<Customer> customers; // Declare customers at the class level
+    List<Customer> customers = new ArrayList<>(); // Declare customers at the class level
     Scanner scanner = new Scanner(System.in);
 
     public void addClaim() {
