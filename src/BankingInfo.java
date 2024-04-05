@@ -1,3 +1,5 @@
+//Luong Tuan Kiet - s3980288
+
 class BankingInfo {
     String bankName;
     String accountName;
