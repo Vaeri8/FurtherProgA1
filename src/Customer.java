@@ -8,7 +8,6 @@ class Customer {
     String fullName;
     String insuranceCard;
     List<Claim> claims;
-    private boolean name;
 
     public Customer(String id, String fullName, String insuranceCard) {
         this.id = id;
@@ -17,19 +16,19 @@ class Customer {
         this.claims = new ArrayList<>();
     }
 
-    public boolean getName() {
-        return name;
+    public String getName() {
+        return fullName;
     }
 
-    public void setName(boolean name) {
-        this.name = name;
+    public void setName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public String getinsuranceCard() {
+    public String getInsuranceCard() {
         return insuranceCard;
     }
 
-    public void setInsuranceCard(boolean address) {
+    public void setInsuranceCard(String insuranceCard) {
         this.insuranceCard = insuranceCard;
     }
 
@@ -37,8 +36,8 @@ class Customer {
         return claims;
     }
 
-    public void setClaims(List<Claim> claims) {
-        this.claims = claims;
+    public void addClaim(Claim claim) {
+        this.claims.add(claim);
     }
 
 }
