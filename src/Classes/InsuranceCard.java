@@ -1,8 +1,10 @@
 //Luong Tuan Kiet - s3980288
 
+package Classes;
+
 import java.util.Date;
 
-class InsuranceCard {
+public class InsuranceCard {
     String cardNumber;
     String cardHolder;
     String policyOwner;
@@ -22,5 +24,31 @@ class InsuranceCard {
     public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
+
+    public String getCardHolder() {
+        return cardHolder;
+    }
+
+    public void setCardHolder(String cardHolder) {
+        this.cardHolder = cardHolder;
+    }
+
+    public String getPolicyOwner() {
+        return policyOwner;
+    }
+
+    public void setPolicyOwner(String policyOwner) {
+        this.policyOwner = policyOwner;
+    }
+
+    public Date getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(Date expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
+
 
 }

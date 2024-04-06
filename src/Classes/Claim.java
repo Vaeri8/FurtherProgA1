@@ -1,9 +1,12 @@
 //Luong Tuan Kiet - s3980288
 
+package Classes;
+
 import java.util.Date;
 import java.util.List;
+import Enum.*;
 
-class Claim {
+public class Claim {
     String id;
     Date claimDate;
     String insuredPerson;
@@ -11,11 +14,11 @@ class Claim {
     Date examDate;
     List<String> documents;
     double claimAmount;
-    String status;
+    ClaimStatus status;
     BankingInfo bankingInfo;
 
     public Claim(String id, Date claimDate, String insuredPerson, String cardNumber, Date examDate,
-                 List<String> documents, double claimAmount, String status, BankingInfo bankingInfo) {
+                 List<String> documents, double claimAmount, ClaimStatus status, BankingInfo bankingInfo) {
         this.id = id;
         this.claimDate = claimDate;
         this.insuredPerson = insuredPerson;
@@ -83,12 +86,12 @@ class Claim {
         return claimAmount;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public ClaimStatus getStatus() {
+        return status;
     }
 
-    public String getStatus() {
-        return status;
+    public void setStatus(ClaimStatus status) {
+        this.status = status;
     }
 
     public void setBankingInfo(BankingInfo bankingInfo) {

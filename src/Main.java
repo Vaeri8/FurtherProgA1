@@ -1,13 +1,10 @@
 //Luong Tuan Kiet - s3980288
 
-import java.io.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import Operations.ClaimOperation;
+import Operations.CustomerOperation;
+import Operations.InsuranceOperation;
+
 import java.util.Scanner;
-import java.util.*;
 
 public class Main {
     Scanner scanner = new Scanner(System.in);
@@ -20,19 +17,23 @@ public class Main {
     public void run() {
         boolean exit = false;
         while (!exit) {
-            System.out.println("Welcome to the Claim Processing System!");
+            System.out.println("Welcome to the Classes.Claim Processing System!");
             System.out.println("Please select an option:");
             System.out.println("1. Add Claim");
             System.out.println("2. Update Claim");
             System.out.println("3. Delete Claim");
             System.out.println("4. View Claim");
             System.out.println("5. View All Claims");
-            System.out.println("6. Exit");
+            System.out.println("6. View All Customers");
+            System.out.println("7. View All Insurances");
+            System.out.println("8. Exit");
 
             int option = scanner.nextInt();
             scanner.nextLine(); // consume newline
 
             ClaimOperation claimOperation = new ClaimOperation();
+            CustomerOperation customerOperation = new CustomerOperation();
+            InsuranceOperation insuranceOperation = new InsuranceOperation();
             switch (option) {
                 case 1:
                     claimOperation.addClaim();
@@ -50,6 +51,12 @@ public class Main {
                     claimOperation.viewAllClaims();
                     break;
                 case 6:
+                    customerOperation.viewAllCustomers();
+                    break;
+                case 7:
+                    insuranceOperation.viewAllInsurances();
+                    break;
+                case 8:
                     exit = true;
                     break;
                 default:

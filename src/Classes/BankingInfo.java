@@ -1,6 +1,8 @@
 //Luong Tuan Kiet - s3980288
 
-class BankingInfo {
+package Classes;
+
+public class BankingInfo {
     String bankName;
     String accountName;
     String accountNumber;

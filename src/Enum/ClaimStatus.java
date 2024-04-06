@@ -1,5 +1,7 @@
 //Luong Tuan Kiet - s3980288
 
-enum ClaimStatus {
+package Enum;
+
+public enum ClaimStatus {
     NEW, PROCESSING, DONE
 }
