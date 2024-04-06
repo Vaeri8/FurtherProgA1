@@ -25,7 +25,7 @@ public class Main {
             System.out.println("4. View Claim");
             System.out.println("5. View All Claims");
             System.out.println("6. View All Customers");
-            System.out.println("7. View All Insurances");
+            System.out.println("7. View All Insurance Cards");
             System.out.println("8. Exit");
 
             int option = scanner.nextInt();
