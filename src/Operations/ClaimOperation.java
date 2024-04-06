@@ -228,6 +228,7 @@ public class ClaimOperation implements ClaimProcessManager {
     }
 
     public void viewAllClaims() {
+        List<Claim> claims = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader("src/Data/claims.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -242,17 +243,23 @@ public class ClaimOperation implements ClaimProcessManager {
 
                 // Create a new claim
                 Claim claim = new Claim(claimId, claimDate, insuredPerson, cardNumber, examDate, new ArrayList<>(), claimAmount, Status, null);
-
-                // Print the details of the claim
-                System.out.println("ID: " + claim.getId());
-                System.out.println("Insured Person: " + claim.getInsuredPerson());
-                System.out.println("Card Number: " + claim.getCardNumber());
-                System.out.println("Claim Amount: " + claim.getClaimAmount());
-                System.out.println("Status: " + claim.getStatus());
-                System.out.println("------------------------");
+                claims.add(claim);
             }
         } catch (IOException | ParseException e) {
             System.out.println("An error occurred while reading from the file: src/Data/claims.txt");
+        }
+
+        // Sort the claims by ID
+        claims.sort(Comparator.comparing(Claim::getId));
+
+        // Print the details of the claims
+        for (Claim claim : claims) {
+            System.out.println("ID: " + claim.getId());
+            System.out.println("Insured Person: " + claim.getInsuredPerson());
+            System.out.println("Card Number: " + claim.getCardNumber());
+            System.out.println("Claim Amount: " + claim.getClaimAmount());
+            System.out.println("Status: " + claim.getStatus());
+            System.out.println("------------------------");
         }
     }
 
