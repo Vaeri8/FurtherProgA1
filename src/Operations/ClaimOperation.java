@@ -56,7 +56,7 @@ public class ClaimOperation implements ClaimProcessManager {
             System.out.println("An error occurred while writing to the file: src/Data/claims.txt");
         }
 
-        saveToFile("customers.txt");// Saves customers list
+        saveToFile("src/Data/customers.txt");// Saves customers list
     }
 
     public void updateClaim() {
@@ -65,7 +65,7 @@ public class ClaimOperation implements ClaimProcessManager {
 
         // Reads file and stores each claim in a list
         List<Claim> claims = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("src/src/Data/claims.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/Data/claims.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
@@ -97,12 +97,12 @@ public class ClaimOperation implements ClaimProcessManager {
 
                 System.out.println("Enter the new claim amount:");
                 double claimAmount = scanner.nextDouble();
-                scanner.nextLine(); // consume newline
+                scanner.nextLine();
 
                 System.out.println("Enter the new status:");
                 String status = scanner.nextLine();
 
-                // Update the claim
+                // Updates claim
                 claim.setInsuredPerson(insuredPerson);
                 claim.setCardNumber(cardNumber);
                 claim.setClaimAmount(claimAmount);
@@ -110,7 +110,7 @@ public class ClaimOperation implements ClaimProcessManager {
 
                 System.out.println("Claim updated successfully.");
 
-                // Write the updated list of claims back to the src/Data/claims.txt file
+                // Write the updated list to claims.txt
                 try (FileWriter writer = new FileWriter("src/Data/claims.txt")) {
                     for (Claim updatedClaim : claims) {
                         writer.write(updatedClaim.getId() + ",");
@@ -120,7 +120,6 @@ public class ClaimOperation implements ClaimProcessManager {
                         writer.write(new SimpleDateFormat("yyyy-MM-dd").format(updatedClaim.getExamDate()) + ",");
                         writer.write(updatedClaim.getClaimAmount() + ",");
                         writer.write(updatedClaim.getStatus() + ",");
-                        // Add more fields as necessary
                         writer.write("\n");
                     }
                 } catch (IOException e) {
@@ -138,7 +137,7 @@ public class ClaimOperation implements ClaimProcessManager {
         System.out.println("Enter the ID of the claim you want to delete:");
         String id = scanner.nextLine();
 
-        // Read the src/Data/claims.txt file and store each claim in a list
+        // Read the src/Data/claims.txt and store in a list
         List<Claim> claims = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader("src/Data/claims.txt"))) {
             String line;
@@ -152,10 +151,8 @@ public class ClaimOperation implements ClaimProcessManager {
                 double claimAmount = Double.parseDouble(parts[5]);
                 ClaimStatus Status = ClaimStatus.valueOf(parts[6]);
 
-                // Create a new claim
                 Claim claim = new Claim(claimId, claimDate, insuredPerson, cardNumber, examDate, new ArrayList<>(), claimAmount, Status, null);
 
-                // Add the claim to the list
                 claims.add(claim);
             }
         } catch (IOException | ParseException e) {
@@ -171,7 +168,7 @@ public class ClaimOperation implements ClaimProcessManager {
 
                 System.out.println("Claim deleted successfully.");
 
-                // Write the updated list of claims back to the src/Data/claims.txt file
+                // Write back to the src/Data/claims.txt file
                 try (FileWriter writer = new FileWriter("src/Data/claims.txt")) {
                     for (Claim updatedClaim : claims) {
                         writer.write(updatedClaim.getId() + ",");
@@ -181,7 +178,6 @@ public class ClaimOperation implements ClaimProcessManager {
                         writer.write(new SimpleDateFormat("yyyy-MM-dd").format(updatedClaim.getExamDate()) + ",");
                         writer.write(updatedClaim.getClaimAmount() + ",");
                         writer.write(updatedClaim.getStatus() + ",");
-                        // Add more fields as necessary
                         writer.write("\n");
                     }
                 } catch (IOException e) {
@@ -214,7 +210,7 @@ public class ClaimOperation implements ClaimProcessManager {
                 // Create a new claim
                 Claim claim = new Claim(claimId, claimDate, insuredPerson, cardNumber, examDate, new ArrayList<>(), claimAmount, Status, null);
 
-                // If this is the claim we're looking for, print its details and return
+                // print its details and return
                 if (claim.getId().equals(id)) {
                     System.out.println("ID: " + claim.getId());
                     System.out.println("Insured Person: " + claim.getInsuredPerson());
@@ -275,7 +271,6 @@ public class ClaimOperation implements ClaimProcessManager {
                     writer.write(new SimpleDateFormat("yyyy-MM-dd").format(claim.getExamDate()) + ",");
                     writer.write(claim.getClaimAmount() + ",");
                     writer.write(claim.getStatus() + ",");
-                    // Add more fields as necessary
                 }
 
                 writer.write("\n");
